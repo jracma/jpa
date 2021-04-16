@@ -1,5 +1,6 @@
 package cn.wntime.jpa.domain;
 
+import cn.wntime.jpa.domain.common.BaseEntity;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -12,7 +13,7 @@ import java.util.Set;
 @Data
 @Entity
 @Table(name = "org_info")
-public class OrgInfo implements Serializable {
+public class OrgInfo extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

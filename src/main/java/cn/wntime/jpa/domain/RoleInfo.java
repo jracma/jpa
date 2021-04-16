@@ -1,5 +1,6 @@
 package cn.wntime.jpa.domain;
 
+import cn.wntime.jpa.domain.common.BaseEntity;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -9,7 +10,7 @@ import java.util.Set;
 @Data
 @Entity
 @Table(name = "role_info")
-public class RoleInfo implements Serializable {
+public class RoleInfo extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

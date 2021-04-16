@@ -5,18 +5,15 @@ import cn.wntime.jpa.repository.UserInfoRepository;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.commons.lang3.RandomUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Api(value = "用户类")
+@Api(value = "用户操作类", tags = {"用户操作类"})
 @RestController
-@RequestMapping(name = "/user")
+@RequestMapping(path = "/user")
 public class UserInfoController {
 
     final UserInfoRepository userInfoRepository;
@@ -40,6 +37,14 @@ public class UserInfoController {
         userInfo.setUserName(RandomStringUtils.random(6));
         userInfoRepository.save(userInfo);
         return userInfo;
+    }
+
+    @ApiOperation(value = "一个抛异常方法", httpMethod = "GET")
+    @RequestMapping(path = "/exception", method = RequestMethod.GET)
+    public void exception() throws Exception {
+        if (true)
+            throw new Exception("测试异常");
+        return;
     }
 
 }

@@ -27,11 +27,11 @@ spring:
   pid:
     file: jpa.pid
   application:
-    name: JPA RBAC FR
+    name: JPARBAC
 
 swagger:
   enable: true
   application-name: ${spring.application.name}
   application-version: 1.0
-  application-description: springfox swagger 3.0整合Demo
-  try-host: http://localhost:${server.port}
+  application-description: JPARBC
+  try-host: http://localhost:${server.port}${server.servlet.context-path}

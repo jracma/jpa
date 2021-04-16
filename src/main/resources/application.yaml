@@ -1,4 +1,3 @@
-
 server:
   servlet:
     context-path: /jpa
@@ -23,11 +22,20 @@ spring:
         implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
         physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
       use-new-id-generator-mappings: true
-    show-sql: true
+    show-sql: false
+    properties:
+      hibernate:
+        default_batch_fetch_size: 20
   pid:
     file: jpa.pid
   application:
     name: JPARBAC
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: trace
+
 
 swagger:
   enable: true

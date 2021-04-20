@@ -1,12 +1,11 @@
 package cn.wntime.jpa.domain;
 
-import cn.wntime.jpa.domain.common.BaseEntity;
-import cn.wntime.jpa.domain.common.Gender;
+import cn.wntime.jpa.common.BaseEntity;
+import cn.wntime.jpa.common.Gender;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Set;
 
 @Data
 @Entity

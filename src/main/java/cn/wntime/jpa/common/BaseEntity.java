@@ -1,4 +1,4 @@
-package cn.wntime.jpa.domain.common;
+package cn.wntime.jpa.common;
 
 import lombok.Data;
 import org.springframework.data.annotation.CreatedBy;

@@ -1,11 +1,10 @@
-package cn.wntime.jpa.config;
+package cn.wntime.jpa.common;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.HashMap;
 
 /**
  * 返回数据

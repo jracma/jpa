@@ -1,6 +1,8 @@
 package cn.wntime.jpa.domain;
 
-import cn.wntime.jpa.domain.common.BaseEntity;
+import cn.wntime.jpa.common.BaseEntity;
+import cn.wntime.jpa.common.DataLevel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -25,5 +27,28 @@ public class RoleInfo extends BaseEntity implements Serializable {
 
     @Column(name = "role_name")
     private String roleName;
+
+    @ManyToMany(mappedBy = "roles")
+    @ApiModelProperty(value = "用户", hidden = true)
+    private Set<UserInfo> users;
+
+    @ManyToMany
+    @JoinTable(name = "sys_roles_menus",
+            joinColumns = {@JoinColumn(name = "role_id",referencedColumnName = "role_id")},
+            inverseJoinColumns = {@JoinColumn(name = "menu_id",referencedColumnName = "menu_id")})
+    @ApiModelProperty(value = "菜单", hidden = true)
+    private Set<ResInfo> ress;
+
+
+
+    @ApiModelProperty(value = "数据权限，全部 、 本级 、 自定义")
+    private String dataLevel = DataLevel.LEVEL.getValue();
+
+    @Column(name = "level")
+    @ApiModelProperty(value = "级别，数值越小，级别越大")
+    private Integer level = 3;
+
+    @ApiModelProperty(value = "描述")
+    private String description;
 
 }

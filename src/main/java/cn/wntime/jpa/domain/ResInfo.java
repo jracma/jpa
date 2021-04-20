@@ -1,10 +1,13 @@
 package cn.wntime.jpa.domain;
 
-import cn.wntime.jpa.domain.common.BaseEntity;
+import cn.wntime.jpa.common.BaseEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 /**
  * 系统资源信息，菜单，按钮
@@ -45,5 +48,38 @@ public class ResInfo extends BaseEntity implements Serializable {
      */
     @Column(name = "res_name")
     private String resName;
+
+    @ApiModelProperty(value = "标题")
+    private String title;
+
+    @ApiModelProperty(value = "排序")
+    private Integer resSort = 999;
+
+    @ApiModelProperty(value = "组件路径")
+    private String component;
+
+    @ApiModelProperty(value = "路由地址")
+    private String path;
+
+
+    @ApiModelProperty(value = "资源类型，目录、菜单、按钮")
+    private Integer type;
+
+    @ApiModelProperty(value = "权限标识")
+    private String permission;
+
+    @ApiModelProperty(value = "图标")
+    private String icon;
+
+    @ApiModelProperty(value = "是否隐藏")
+    private Boolean hidden;
+
+    @ApiModelProperty(value = "外链菜单")
+    private Boolean iFrame;
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "ress")
+    @ApiModelProperty(value = "菜单角色")
+    private Set<RoleInfo> roles;
 
 }

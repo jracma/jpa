@@ -1,4 +1,4 @@
-package cn.wntime.jpa.domain.common;
+package cn.wntime.jpa.common;
 
 public enum Gender {
     MAIL("男性"), FMAIL("女性");

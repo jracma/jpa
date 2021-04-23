@@ -77,9 +77,5 @@ public class ResInfo extends BaseEntity implements Serializable {
     @ApiModelProperty(value = "外链菜单")
     private Boolean iFrame;
 
-    @JsonIgnore
-    @ManyToMany(mappedBy = "ress")
-    @ApiModelProperty(value = "菜单角色")
-    private Set<RoleInfo> roles;
 
 }

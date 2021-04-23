@@ -7,6 +7,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -28,18 +29,8 @@ public class RoleInfo extends BaseEntity implements Serializable {
     @Column(name = "role_name")
     private String roleName;
 
-    @ManyToMany(mappedBy = "roles")
-    @ApiModelProperty(value = "用户", hidden = true)
-    private Set<UserInfo> users;
-
-    @ManyToMany
-    @JoinTable(name = "sys_roles_menus",
-            joinColumns = {@JoinColumn(name = "role_id",referencedColumnName = "role_id")},
-            inverseJoinColumns = {@JoinColumn(name = "menu_id",referencedColumnName = "menu_id")})
-    @ApiModelProperty(value = "菜单", hidden = true)
-    private Set<ResInfo> ress;
-
-
+    @OneToMany(mappedBy = "dept")
+    private List<DeptRoleRef> deptRoleRefs;
 
     @ApiModelProperty(value = "数据权限，全部 、 本级 、 自定义")
     private String dataLevel = DataLevel.LEVEL.getValue();

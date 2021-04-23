@@ -9,6 +9,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -30,8 +31,6 @@ public class DeptInfo extends BaseEntity implements Serializable {
     @Column(name = "dept_id", nullable = false)
     private Long deptId;
 
-
-
     @ApiModelProperty(value = "排序")
     private Integer deptSort;
 
@@ -45,4 +44,7 @@ public class DeptInfo extends BaseEntity implements Serializable {
 
     @ApiModelProperty(value = "上级部门")
     private Long pid;
+
+    @OneToMany(mappedBy = "dept")
+    private List<DeptRoleRef> deptRoleRefs;
 }

@@ -1,23 +1,22 @@
 package cn.wntime.jpa.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import io.swagger.annotations.ApiModelProperty;
+import cn.wntime.jpa.common.BaseEntity;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import java.util.Set;
+import javax.persistence.*;
+import java.io.Serializable;
 
-public class DeptRoleRef {
-    @JsonIgnore
-    @ManyToMany(mappedBy = "depts")
-    @ApiModelProperty(value = "角色")
-    private Set<RoleInfo> roles;
+@Entity
+public class DeptRoleRef  extends BaseEntity implements Serializable {
 
-    @ManyToMany
-    @JoinTable(name = "sys_roles_depts",
-            joinColumns = {@JoinColumn(name = "role_id",referencedColumnName = "role_id")},
-            inverseJoinColumns = {@JoinColumn(name = "dept_id",referencedColumnName = "dept_id")})
-    @ApiModelProperty(value = "部门", hidden = true)
-    private Set<DeptInfo> depts;
+    @Id
+    @SequenceGenerator(name = "dept_role_ref_id_seq", sequenceName = "dept_role_ref_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "dept_role_ref_id_seq")
+    @Column(name = "dept_role_ref_id", nullable = false)
+    private Long deptRoleRefId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private RoleInfo role;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private DeptInfo dept;
 }

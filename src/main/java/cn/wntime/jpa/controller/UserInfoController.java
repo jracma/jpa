@@ -30,7 +30,7 @@ public class UserInfoController {
     }
 
     @ApiOperation(value = "增加用户", httpMethod = "POST" )
-    @RequestMapping(path = "/add", method = RequestMethod.GET)
+    @RequestMapping(path = "/add", method = RequestMethod.POST)
     public UserInfo add(@RequestBody UserInfo userInfo) {
         userInfoRepository.save(userInfo);
         return userInfo;

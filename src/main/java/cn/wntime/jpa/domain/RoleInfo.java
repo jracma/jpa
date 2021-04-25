@@ -29,9 +29,6 @@ public class RoleInfo extends BaseEntity implements Serializable {
     @Column(name = "role_name")
     private String roleName;
 
-    @OneToMany(mappedBy = "dept")
-    private List<DeptRoleRef> deptRoleRefs;
-
     @ApiModelProperty(value = "数据权限，全部 、 本级 、 自定义")
     private String dataLevel = DataLevel.LEVEL.getValue();
 
@@ -42,4 +39,9 @@ public class RoleInfo extends BaseEntity implements Serializable {
     @ApiModelProperty(value = "描述")
     private String description;
 
+    @OneToMany(mappedBy = "role")
+    private List<DeptRoleRef> deptRoleRefs;
+
+    @OneToMany(mappedBy = "role")
+    private List<UserRoleRef> userRoleRefs;
 }

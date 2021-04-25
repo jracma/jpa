@@ -18,7 +18,7 @@ spring:
     database-platform: org.hibernate.dialect.PostgresPlusDialect
     generate-ddl: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
       naming:
         implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
         physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
@@ -31,6 +31,10 @@ spring:
     file: jpa.pid
   application:
     name: JPARBAC
+  security:
+    user:
+      name: admin
+      password: admin
 logging:
   level:
     org:

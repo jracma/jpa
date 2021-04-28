@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 @Data
 @Entity
-public class DeptRoleRef  extends BaseEntity implements Serializable {
+public class DeptJobRef extends BaseEntity implements Serializable {
 
     @Id
     @SequenceGenerator(name = "dept_role_ref_id_seq", sequenceName = "dept_role_ref_id_seq", allocationSize = 1)
@@ -17,7 +17,7 @@ public class DeptRoleRef  extends BaseEntity implements Serializable {
     private Long refId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private RoleInfo role;
+    private JobInfo job;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private DeptInfo dept;

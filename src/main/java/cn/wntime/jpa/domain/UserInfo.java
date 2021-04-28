@@ -5,7 +5,7 @@ import cn.wntime.jpa.common.Gender;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import org.aspectj.weaver.Lint;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,6 +13,7 @@ import java.util.List;
 
 @Data
 @Entity
+@Accessors(chain = true)
 @Table(name = "user_info")
 @ApiModel(value = "用户信息类", description = "用户基本信息:邮箱,手机号,登录名称,密码...")
 public class UserInfo extends BaseEntity implements Serializable {
@@ -49,9 +50,13 @@ public class UserInfo extends BaseEntity implements Serializable {
     @ApiModelProperty(value = "手机号", example = "13912345678")
     private String mobilePhone;
 
+    @OneToOne
+    @ApiModelProperty(value = "用户岗位JOB", example = "1")
+    private JobInfo job;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "user_gender")
-    @ApiModelProperty(value = "用户性别",example = "MAIL")
+    @ApiModelProperty(value = "用户性别", example = "MAIL")
     private Gender gender;
 
     @OneToMany(mappedBy = "user")

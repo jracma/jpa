@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AreaInfoRepository extends JpaRepository<DeptInfo, Long>, JpaSpecificationExecutor<DeptInfo> {
+public interface DeptInfoRepository extends JpaRepository<DeptInfo, Long>, JpaSpecificationExecutor<DeptInfo> {
 
 }

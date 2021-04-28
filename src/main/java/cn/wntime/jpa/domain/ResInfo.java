@@ -4,9 +4,11 @@ import cn.wntime.jpa.common.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -14,6 +16,7 @@ import java.util.Set;
  */
 @Data
 @Entity
+@Accessors(chain = true)
 @Table(name = "res_info")
 public class ResInfo extends BaseEntity implements Serializable {
 
@@ -78,4 +81,6 @@ public class ResInfo extends BaseEntity implements Serializable {
     private Boolean iFrame;
 
 
+    @OneToMany(mappedBy = "res")
+    private List<RoleResRef> roleResRefs;
 }

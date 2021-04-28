@@ -1,17 +1,18 @@
 package cn.wntime.jpa.domain;
 
 import cn.wntime.jpa.common.BaseEntity;
-import cn.wntime.jpa.common.DataLevel;
+
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
-import java.util.Set;
 
 @Data
 @Entity
+@Accessors(chain = true)
 @Table(name = "role_info")
 public class RoleInfo extends BaseEntity implements Serializable {
 
@@ -29,19 +30,16 @@ public class RoleInfo extends BaseEntity implements Serializable {
     @Column(name = "role_name")
     private String roleName;
 
-    @ApiModelProperty(value = "数据权限，全部 、 本级 、 自定义")
-    private String dataLevel = DataLevel.LEVEL.getValue();
-
-    @Column(name = "level")
-    @ApiModelProperty(value = "级别，数值越小，级别越大")
-    private Integer level = 3;
 
     @ApiModelProperty(value = "描述")
     private String description;
 
     @OneToMany(mappedBy = "role")
-    private List<DeptRoleRef> deptRoleRefs;
+    private List<UserRoleRef> userRoleRefs;
 
     @OneToMany(mappedBy = "role")
-    private List<UserRoleRef> userRoleRefs;
+    private List<RoleResRef> roleResRefs;
+
+    @OneToMany(mappedBy = "role")
+    private List<JobRoleRef> jobRoleRefs;
 }

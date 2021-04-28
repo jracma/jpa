@@ -3,17 +3,20 @@ package cn.wntime.jpa.domain;
 import cn.wntime.jpa.common.BaseEntity;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 岗位信息
  */
 @Data
 @Entity
+@Accessors(chain = true)
 @Table(name = "job_info")
 public class JobInfo extends BaseEntity implements Serializable {
 
@@ -37,6 +40,16 @@ public class JobInfo extends BaseEntity implements Serializable {
     private Long jobSort;
 
     @NotNull
+    @ApiModelProperty(value = "岗位数据权限,大的能看小的的数据.")
+    private Integer jobData;
+
+    @NotNull
     @ApiModelProperty(value = "是否启用")
     private Boolean enabled;
+
+    @OneToMany(mappedBy = "job")
+    private List<JobRoleRef> jobRoleRefs;
+
+    @OneToMany(mappedBy = "job")
+    private List<DeptJobRef> deptJobRefs;
 }

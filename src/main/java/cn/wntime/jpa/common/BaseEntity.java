@@ -25,7 +25,7 @@ public class BaseEntity {
     @CreatedBy
     @JsonIgnore
     @ApiModelProperty(hidden = true)
-    private Long createUserId;
+    private String createBy;
 
     @CreatedDate
     @JsonIgnore
@@ -35,7 +35,7 @@ public class BaseEntity {
     @LastModifiedBy
     @JsonIgnore
     @ApiModelProperty(hidden = true)
-    private Long modifyUserId;
+    private String modifyBy;
 
     @LastModifiedDate
     @JsonIgnore

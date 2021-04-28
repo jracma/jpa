@@ -1,22 +1,22 @@
 package cn.wntime.jpa.domain;
 
 import cn.wntime.jpa.common.BaseEntity;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
-import java.util.Set;
 
 /**
  * 区域信息
  */
 @Data
 @Entity
+@Accessors(chain = true)
 @Table(name = "dept_info")
 public class DeptInfo extends BaseEntity implements Serializable {
 
@@ -46,5 +46,5 @@ public class DeptInfo extends BaseEntity implements Serializable {
     private Long pid;
 
     @OneToMany(mappedBy = "dept")
-    private List<DeptRoleRef> deptRoleRefs;
+    private List<DeptJobRef> deptJobRefs;
 }

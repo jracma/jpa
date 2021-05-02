@@ -2,6 +2,8 @@ server:
   port: 9999
   servlet:
     context-path: /jpa
+project:
+  init-data: true
 spring:
   data:
     jpa:
@@ -27,6 +29,8 @@ spring:
     properties:
       hibernate:
         default_batch_fetch_size: 20
+#        enable_lazy_load_no_trans: true
+    open-in-view: false
   pid:
     file: jpa.pid
   application:
@@ -37,9 +41,10 @@ spring:
       password: admin
 logging:
   level:
+    root: info
     org:
       hibernate:
-        SQL: info
+        SQL: debug
 
 swagger:
   enable: true

@@ -49,6 +49,6 @@ public class BaseEntity {
 
     @JsonIgnore
     @ApiModelProperty(hidden = true)
-    private Boolean deleted;
+    private Boolean deleted=false;
 
 }

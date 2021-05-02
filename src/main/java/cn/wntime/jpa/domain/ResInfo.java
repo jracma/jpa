@@ -65,7 +65,7 @@ public class ResInfo extends BaseEntity implements Serializable {
     private String path;
 
 
-    @ApiModelProperty(value = "资源类型，目录、菜单、按钮")
+    @ApiModelProperty(value = "资源类型根节点0，目录1、菜单2、按钮3")
     private Integer type;
 
     @ApiModelProperty(value = "权限标识")

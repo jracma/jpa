@@ -2,12 +2,14 @@ package cn.wntime.jpa.domain;
 
 import cn.wntime.jpa.common.BaseEntity;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Data
 @Entity
+@Accessors(chain = true)
 public class RoleResRef  extends BaseEntity implements Serializable {
     @Id
     @SequenceGenerator(name = "role_res_ref_id_seq", sequenceName = "role_res_ref_id_seq", allocationSize = 1)

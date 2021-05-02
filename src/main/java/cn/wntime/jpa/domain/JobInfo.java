@@ -50,6 +50,6 @@ public class JobInfo extends BaseEntity implements Serializable {
     @OneToMany(mappedBy = "job")
     private List<JobRoleRef> jobRoleRefs;
 
-    @OneToMany(mappedBy = "job")
+    @OneToMany(mappedBy = "job",fetch = FetchType.LAZY)
     private List<DeptJobRef> deptJobRefs;
 }

@@ -3,6 +3,7 @@ package cn.wntime.jpa.domain;
 import cn.wntime.jpa.common.BaseEntity;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ import java.util.List;
  */
 @Data
 @Entity
+@ToString
 @Accessors(chain = true)
 @Table(name = "dept_info")
 public class DeptInfo extends BaseEntity implements Serializable {
@@ -38,6 +40,10 @@ public class DeptInfo extends BaseEntity implements Serializable {
     @ApiModelProperty(value = "部门名称")
     private String name;
 
+    @NotBlank
+    @ApiModelProperty(value = "部门编码")
+    private String code;
+
     @NotNull
     @ApiModelProperty(value = "是否启用")
     private Boolean enabled;
@@ -45,6 +51,7 @@ public class DeptInfo extends BaseEntity implements Serializable {
     @ApiModelProperty(value = "上级部门")
     private Long pid;
 
-    @OneToMany(mappedBy = "dept")
+    @OneToMany(mappedBy = "dept",fetch = FetchType.LAZY)
     private List<DeptJobRef> deptJobRefs;
+
 }

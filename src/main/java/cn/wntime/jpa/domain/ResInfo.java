@@ -31,7 +31,7 @@ public class ResInfo extends BaseEntity implements Serializable {
     @Column(name = "res_id", nullable = false)
     private Long resId;
 
-    @Column(name = "res_code")
+    @Column(name = "res_code",unique = true,length = 128,nullable = false)
     private String resCode;
 
     /**

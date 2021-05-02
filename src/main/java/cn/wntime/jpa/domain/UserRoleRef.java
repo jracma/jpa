@@ -18,6 +18,7 @@ public class UserRoleRef extends BaseEntity implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private UserInfo user;
+
     @ManyToOne(fetch = FetchType.LAZY)
     private RoleInfo role;
 

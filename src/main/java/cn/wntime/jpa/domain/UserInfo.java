@@ -30,7 +30,7 @@ public class UserInfo extends BaseEntity implements Serializable {
     @ApiModelProperty(value = "用户id", example = "100")
     private Long userId;
 
-    @Column(name = "email")
+    @Column(name = "email",unique = true,nullable = false)
     @ApiModelProperty(value = "电子邮箱", example = "aaa@aaa.com")
     private String email;
 
@@ -38,7 +38,7 @@ public class UserInfo extends BaseEntity implements Serializable {
     @ApiModelProperty(value = "用户昵称", example = "王五")
     private String nickName;
 
-    @Column(name = "login_name")
+    @Column(name = "login_name",unique = true,nullable = false)
     @ApiModelProperty(value = "用户登录名", example = "user")
     private String loginName;
 
@@ -46,13 +46,13 @@ public class UserInfo extends BaseEntity implements Serializable {
     @ApiModelProperty(value = "用户密码", example = "123456")
     private String password;
 
-    @Column(name = "mobile_phone")
+    @Column(name = "mobile_phone",unique = true,nullable = false)
     @ApiModelProperty(value = "手机号", example = "13912345678")
     private String mobilePhone;
 
     @OneToOne
     @ApiModelProperty(value = "用户岗位JOB", example = "1")
-    private JobInfo job;
+    private JobInfo jobInfo;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "user_gender")

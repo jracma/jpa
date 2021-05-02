@@ -78,16 +78,16 @@ public class ApplicationRunners implements ApplicationRunner {
         try {
 
             logger.info("生成初始数据");
-            DeptInfo deptInfo = new DeptInfo().setDeptSort(0).setEnabled(true).setName("国安总部").setPid(0L);
+            DeptInfo deptInfo = new DeptInfo().setDeptSort(0).setEnabled(true).setName("国安总部").setPid(0L).setCode("HEADQUARTER");
             deptInfoRepository.saveAndFlush(deptInfo);
 
-            JobInfo jobInfo = new JobInfo().setName("国安总部中台管理员").setEnabled(true).setJobData(100).setJobSort(0L);
+            JobInfo jobInfo = new JobInfo().setName("国安总部中台管理员").setEnabled(true).setJobData(100).setJobSort(0);
             jobInfoRepository.saveAndFlush(jobInfo);
 
             RoleInfo roleInfo = new RoleInfo().setRoleName("中台管理员").setRoleCode("MANAGER").setDescription("中台管理员,负责管理账号相关信息.");
             roleInfoRepository.saveAndFlush(roleInfo);
 
-            UserInfo userInfo = new UserInfo().setEmail("manager@jpa.com").setGender(Gender.FMAIL).setJob(jobInfo).setLoginName("admin").setMobilePhone("13566666666")
+            UserInfo userInfo = new UserInfo().setEmail("manager@jpa.com").setGender(Gender.FMAIL).setJobInfo(jobInfo).setLoginName("admin").setMobilePhone("13566666666")
                     .setNickName("管理员").setPassword("admin");
             userInfoRepository.save(userInfo);
 

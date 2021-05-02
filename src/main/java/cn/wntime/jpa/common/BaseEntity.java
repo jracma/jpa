@@ -23,31 +23,25 @@ public class BaseEntity {
 
 
     @CreatedBy
-    @JsonIgnore
     @ApiModelProperty(hidden = true)
     private String createBy;
 
     @CreatedDate
-    @JsonIgnore
     @ApiModelProperty(hidden = true)
     private Date createDate;
 
     @LastModifiedBy
-    @JsonIgnore
     @ApiModelProperty(hidden = true)
     private String modifyBy;
 
     @LastModifiedDate
-    @JsonIgnore
     @ApiModelProperty(hidden = true)
     private Date modifyDate;
 
     @Version
-    @JsonIgnore
     @ApiModelProperty(hidden = true)
     private Integer version;
 
-    @JsonIgnore
     @ApiModelProperty(hidden = true)
     private Boolean deleted=false;
 

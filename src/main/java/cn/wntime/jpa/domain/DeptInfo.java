@@ -34,14 +34,17 @@ public class DeptInfo extends BaseEntity implements Serializable {
     private Long deptId;
 
     @ApiModelProperty(value = "排序")
+    @Column(nullable = false)
     private Integer deptSort;
 
     @NotBlank
     @ApiModelProperty(value = "部门名称")
+    @Column(unique = true,nullable = false,length = 128)
     private String name;
 
     @NotBlank
     @ApiModelProperty(value = "部门编码")
+    @Column(unique = true,nullable = false,length = 128)
     private String code;
 
     @NotNull

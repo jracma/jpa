@@ -33,11 +33,12 @@ public class JobInfo extends BaseEntity implements Serializable {
 
     @NotBlank
     @ApiModelProperty(value = "岗位名称")
+    @Column(unique = true,nullable = false,length = 127)
     private String name;
 
     @NotNull
     @ApiModelProperty(value = "岗位排序")
-    private Long jobSort;
+    private Integer jobSort;
 
     @NotNull
     @ApiModelProperty(value = "岗位数据权限,大的能看小的的数据.")

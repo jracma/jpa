@@ -24,10 +24,10 @@ public class RoleInfo extends BaseEntity implements Serializable {
     @Column(name = "role_id", nullable = false)
     private Long roleId;
 
-    @Column(name = "role_code")
+    @Column(name = "role_code",unique = true,nullable = false)
     private String roleCode;
 
-    @Column(name = "role_name")
+    @Column(name = "role_name",unique = true,nullable = false)
     private String roleName;
 
 

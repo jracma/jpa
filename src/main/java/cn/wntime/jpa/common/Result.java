@@ -3,6 +3,7 @@ package cn.wntime.jpa.common;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
@@ -12,6 +13,7 @@ import java.io.Serializable;
  */
 @Data
 @ApiModel(description="返回的响应对象")
+@Accessors(chain = true)
 public class Result<T> implements Serializable {
 	private static final long serialVersionUID = -1243837890442299554L;
 
@@ -23,5 +25,4 @@ public class Result<T> implements Serializable {
 
 	@ApiModelProperty(value = "返回数据",name = "data")
 	private T data;
-
 }

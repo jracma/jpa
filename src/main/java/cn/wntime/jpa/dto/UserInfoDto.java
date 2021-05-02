@@ -3,9 +3,13 @@ package cn.wntime.jpa.dto;
 import cn.wntime.jpa.common.Gender;
 import cn.wntime.jpa.domain.JobInfo;
 import cn.wntime.jpa.domain.UserRoleRef;
+import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.util.List;
 
+@Data
+@Accessors(chain = true)
 public class UserInfoDto {
     private Long userId;
     private String email;

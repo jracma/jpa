@@ -17,7 +17,6 @@ import java.util.List;
  */
 @Data
 @Entity
-@ToString
 @Accessors(chain = true)
 @Table(name = "dept_info")
 public class DeptInfo extends BaseEntity implements Serializable {

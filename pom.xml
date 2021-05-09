@@ -2,22 +2,37 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.7.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
     <groupId>cn.wntime</groupId>
-    <artifactId>rbac_jpa</artifactId>
+    <artifactId>jpa-admin</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>rbac_jpa</name>
+    <name>jpa-admin</name>
     <description>Demo project for Spring Boot</description>
+    <packaging>pom</packaging>
     <properties>
         <java.version>8</java.version>
         <map-struct-version>1.4.2.Final</map-struct-version>
         <lombok-version>1.18.20</lombok-version>
+        <spring-boot-version>2.3.10.RELEASE</spring-boot-version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
+    <modules>
+        <module>jpa-common</module>
+        <module>jpa-core</module>
+    </modules>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot-version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -150,7 +165,7 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>jpa</finalName>
+        <finalName>jpa-admin</finalName>
     </build>
 
 </project>

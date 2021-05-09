@@ -32,3 +32,6 @@ build/
 ### VS Code ###
 .vscode/
 *.pid
+/spy.log
+**/node_modules/
+**/package-lock.json

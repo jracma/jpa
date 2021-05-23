@@ -30,7 +30,21 @@ export function App() {
 
       <Switch>
         <Route exact path={process.env.PUBLIC_URL + '/'} component={HomePage} />
-        <Route component={NotFoundPage} />
+        <Route
+          exact
+          path={process.env.PUBLIC_URL + '/notfound'}
+          component={NotFoundPage}
+        />
+        <Route
+          exact
+          path={process.env.PUBLIC_URL + '/404'}
+          component={NotFoundPage}
+        />
+        <Route
+          exact
+          path={process.env.PUBLIC_URL + '/404'}
+          component={NotFoundPage}
+        />
       </Switch>
       <GlobalStyle />
     </BrowserRouter>
